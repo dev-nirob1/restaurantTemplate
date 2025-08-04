@@ -8,7 +8,7 @@ const currentYear = new Date().getFullYear();
 </script>
 <template>
   <footer class="footer">
-    <div class="container medium-2 large-3 gap-2 py-2">
+    <div class="container medium-2 large-3 gap-2 py-3">
       <div>
         <a href="/" class="logo">
           <!-- <img class="height-full width-full" src="/logo.png" alt="logo" /> -->
@@ -81,6 +81,7 @@ const currentYear = new Date().getFullYear();
 .footer {
   background-color: var(--primary-color);
   color: var(--white-color);
+  padding: 0;
 }
 
 .footer h5 {
@@ -160,6 +161,7 @@ const currentYear = new Date().getFullYear();
 }
 .footer li i {
     color: var(--secondary-color);
+    margin-right: .25rem;
 }
 .footer ul a {
   text-decoration: none;

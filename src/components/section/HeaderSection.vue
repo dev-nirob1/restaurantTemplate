@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import BaseButton from '../Elements/BaseButton.vue';
+import BaseParagraph from '../Elements/BaseParagraph.vue';
+import BaseTitle from '../Elements/BaseTitle.vue';
 
 const isMenuOpen = ref(false)
 
@@ -37,13 +39,13 @@ onMounted(() => {
         <i :class="isMenuOpen ? 'fas fa-xmark' : 'fas fa-bars'" class="fa-2xl"></i>
       </BaseButton>
       <!-- Logo -->
-     <a href="#" class="logo">
+     <div class="logo">
           <!-- <img class="height-full width-full" src="/logo.png" alt="logo" /> -->
           <div>
-            <span>RannaBari</span>
-            <p>Feast Like Royalty.</p>
+            <BaseTitle>RannaBari</BaseTitle>
+            <BaseParagraph>Feast Like Royalty.</BaseParagraph>
           </div>
-        </a>
+        </div>
       <!-- Navigation Links -->
       <ul :class="{ 'active': isMenuOpen }">
         <ListItem>

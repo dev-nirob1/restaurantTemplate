@@ -11,7 +11,7 @@ import SignatureDishes from './components/section/SignatureDishes.vue';
   <HeaderSection />
   <HeroSection/>
   <!-- <SignatureDishes/> -->
-  <FooterSectionTwo />
+  <!-- <FooterSectionTwo /> -->
   <FooterSection/>
 </template>
 
