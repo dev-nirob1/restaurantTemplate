@@ -1,219 +1,212 @@
-<script setup>
-import { onMounted, ref } from 'vue';
-import BaseButton from '../Elements/BaseButton.vue';
-
-const isMenuOpen = ref(false)
-
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-};
-
-onMounted(() => {
-  const navbar = document.querySelector('.navbar');
-  const navLinks = document.querySelector('.nav-links')
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      navbar.classList.add('scrolling');
-    } else {
-      navbar.classList.remove('scrolling');
-    }
-  });
-  // console.log(navbar.childNodes);
-  navLinks.childNodes.forEach(element => {
-    element.addEventListener('click', () => {
-      isMenuOpen.value = false
-    })
-  });
-})
-</script>
-
 <template>
-  <!-- ======== Navbar section ======== -->
-  <header class="navbar">
-    <nav class="flex justify-between align-center gap-1 container">
-      <!-- Mobile Menu Toggle Button -->
-      <BaseButton class="hamburger" @click="toggleMenu">
-        <i :class="isMenuOpen ? 'fas fa-xmark' : 'fas fa-bars'" class="fa-2xl"></i>
-      </BaseButton>
+  <nav :class="{ 'scrolled': isScrolled }" class="navbar">
+    <div class="container">
       <!-- Logo -->
-      <a href="/" class="logo">
-        <div class="logo-icon">
-          <i class="fa-solid fa-map-location-dot"></i>
-        </div>
-        <span class="logo-text">Ghor<span>Bari</span></span>
-      </a>
-      <!-- Navigation Links -->
-      <ul :class="{ 'active': isMenuOpen }">
-        <ListItem>
-          <a href="#">Home</a>
-        </ListItem>
-        <ListItem>
-          <a href="#featured">Featured</a>
-        </ListItem>
-        <ListItem>
-          <a href="#cities">Explore Cities</a>
-        </ListItem>
-        <ListItem>
-          <a href="#properties">Properties</a>
-        </ListItem>
-        <ListItem>
-          <a href="#testimonials">Testimonials</a>
-        </ListItem>
+      <router-link to="/" class="logo">
+        <span class="gold">Epicurean</span>Elegance
+      </router-link>
 
-        <ListItem class="btn-mobile">
-          <BaseButton class="bg-alternative">List Your Property</BaseButton>
-        </ListItem>
+      <!-- Mobile Toggle -->
+      <button @click="toggleMenu" class="menu-toggle">
+        <span class="bar" :class="{ 'rotate-45': isOpen }"></span>
+        <span class="bar" :class="{ 'opacity-0': isOpen }"></span>
+        <span class="bar" :class="{ 'rotate--45': isOpen }"></span>
+      </button>
+
+      <!-- Desktop Menu -->
+      <ul class="nav-links" :class="{ 'active': isOpen }">
+        <li><router-link to="/" @click="closeMenu">Home</router-link></li>
+        <li><router-link to="/menu" @click="closeMenu">Menu</router-link></li>
+        <li><router-link to="/about" @click="closeMenu">Our Story</router-link></li>
+        <li><router-link to="/reservations" @click="closeMenu" class="">Reservations</router-link></li>
       </ul>
-      <!-- Button to start property listing process -->
-      <BaseButton class="btn-desktop bg-alternative">List Your Property</BaseButton>
-    </nav>
-  </header>
+    </div>
+  </nav>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      isOpen: false,
+      isScrolled: false
+    }
+  },
+  methods: {
+    toggleMenu() {
+      this.isOpen = !this.isOpen
+    },
+    closeMenu() {
+      this.isOpen = false
+    },
+    handleScroll() {
+      this.isScrolled = window.scrollY > 50
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+}
+</script>
+
 <style scoped>
-/* background-color change on animation  */
-.navbar.scrolling {
-  background: var(--primary-color);
-  transition: background-color 0.3s ease;
+/* Color Variables */
+:root {
+  --navy: #2A3A5E;
+  --gold: #D4AF37;
+  --cream: #F8F4E9;
+  --sage: #A4B494;
+  --burgundy: #6D2E46;
 }
 
+/* Base Styles */
 .navbar {
-  backdrop-filter: blur(50px);
-  color: var(--white-color);
-  box-shadow: var(--box-shadow);
-  padding: 0.75rem 0;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  z-index: 999;
+  padding: 1.5rem 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  color: var(--white-color)
 }
 
-/* Logo Styles */
-.logo {
+.navbar.scrolled {
+  padding: 1rem 0;
+  background: rgba(42, 58, 94, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: .25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Logo */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
   font-weight: 700;
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-.logo-icon {
-  width: 32px;
-  height: 32px;
-  color: var(--alternative-color);
-}
-
-.logo-text span {
-  color: var(--alternative-color);
-}
-
-.navbar a {
+  color: var(--cream);
   text-decoration: none;
 }
 
-.navbar ul {
+.gold {
+  color: var(--gold);
+}
+
+/* Navigation Links */
+.nav-links {
   display: flex;
-  align-items: center;
-}
-
-.navbar ul {
+  gap: 2rem;
   list-style: none;
-  position: fixed;
-  top: 5.25rem;
-  left: -100%;
-  width: 80%;
-  margin: 0;
-  background: var(--primary-color);
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2rem;
-  gap: 1.5rem;
-  transition: all 0.3s ease-in-out;
 }
 
-.navbar ul.active {
-  top: 5.25rem;
-  left: 0;
-  color: var(--white-color);
-}
-
-.navbar ul li a {
-  position: relative;
-  display: inline-block;
+.nav-links li a {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--cream);
+  text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease-in-out;
-  padding: 0.5rem 0;
+  transition: color 0.3s;
+  position: relative;
 }
 
-.navbar .btn {
-  border-radius: .75rem 0 .75rem 0;
-  color: var(--primary-color);
-  white-space: nowrap
+.nav-links li a:hover {
+  color: var(--gold);
 }
 
-/* Mobile menu toggle */
-.hamburger {
-  display: block;
-  color: var(--white-color) !important;
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.cta-button {
+  background: var(--burgundy);
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  transition: all 0.3s;
+}
+
+.cta-button:hover {
+  background: var(--gold);
+  color: var(--navy) !important;
+  transform: translateY(-2px);
+}
+
+/* Mobile Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
   border: none;
   cursor: pointer;
-  height: 2.5rem;
-  width: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 1001;
 }
 
-/* cta button hidden/vissible */
-.btn-desktop {
-  display: none;
+.bar {
+  height: 3px;
+  width: 100%;
+  background: var(--cream);
+  transition: all 0.3s ease;
 }
 
-.btn-mobile {
-  display: block;
+.rotate-45 {
+  transform: translateY(9px) rotate(45deg);
 }
 
-@media (min-width: 992px) {
-  .navbar ul {
-    position: inherit;
-    width: 100%;
-    flex-direction: row;
+.rotate--45 {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: var(--navy);
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    background-color: transparent;
-    padding: 0.75rem 0;
+    transition: right 0.5s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
   }
 
-  /* Desktop menu hover effects */
-  .navbar ul li a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--alternative-color);
-    transition: width 0.3s ease;
+  .nav-links.active {
+    right: 0;
   }
 
-  .navbar ul li a:hover::after {
-    width: 100%;
-  }
-
-  /* expand navlinks on desktop  */
-  .hamburger {
-    display: none;
-  }
-
-  /* cta button hidden/vissible */
-  .btn-desktop {
-    display: block;
-  }
-
-  .btn-mobile {
-    display: none;
+  .nav-links li {
+    margin: 1.5rem 0;
   }
 }
 </style>

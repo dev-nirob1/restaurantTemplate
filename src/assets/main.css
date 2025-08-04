@@ -10,11 +10,11 @@ html {
   --montserrat-font: 'Montserrat', sans-serif;
   --roboto-font: 'Roboto', serif;
 
-  --primary-color: #0B4251;
-  --secondary-color: #87BBD7;
-  --alternative-color: #F2C864;
-  --white-color: #fff;
-  --border-color: #dee2e6;
+ --primary-color: #1C1C1C;      /* Dark Charcoal – background, sections */
+  --secondary-color: #BFAE99;    /* Warm Champagne – text, borders, icons */
+  --alternative-color: #C1442E;   /* Rich Terracotta – CTA buttons, hovers */
+  --white-color: #F9F6F1;          /* Off-White – main text */
+  --border-color: #333333;  
   /* ---------------typography------------ */
   /* headings  */
   --heading-1: 1.5rem;

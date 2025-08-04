@@ -1,102 +1,220 @@
 <template>
   <section class="hero">
+    <!-- Background Image with Overlay -->
+    <div class="hero-background">
+      <img 
+        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+        alt="Elegant restaurant interior"
+        class="hero-image"
+      />
+      <div class="overlay"></div>
+    </div>
+
+    <!-- Hero Content -->
     <div class="hero-content">
-      <div class="hero-text">
-        <h1>Discover Your Style</h1>
-        <p>Explore the latest fashion trends and update your wardrobe today. Exclusive deals just for you!</p>
-        <button>Shop Now</button>
+      <h1 class="hero-title">Savor the <span class="gold">Art</span> of Dining</h1>
+      <p class="hero-subtitle">Where every dish tells a story, crafted with locally-sourced ingredients.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary">Reserve a Table</button>
+        <button class="btn-secondary">Explore Menu</button>
       </div>
-      <div class="hero-image">
-        <img
-          src="https://cdn.pixabay.com/photo/2016/03/27/21/30/people-1284418_1280.jpg"
-          alt="Fashion Hero"
-          loading="lazy"
-        />
-      </div>
+    </div>
+
+    <!-- Scrolling Indicator -->
+    <div class="scroll-indicator" @click="scrollToContent">
+      <span class="chevron"></span>
     </div>
   </section>
 </template>
 
+<script>
+export default {
+  methods: {
+    scrollToContent() {
+      window.scrollBy({ top: window.innerHeight - 100, behavior: 'smooth' });
+    }
+  }
+};
+</script>
+
 <style scoped>
-:root {
-  --primary: #985913;
-  --secondary: #eac8a4;
-  --accent: #bc8889;
-  --highlight: #00adda;
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-color);
 }
 
-.hero {
-  background: var(--secondary);
-  padding: 2rem 1rem;
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(42, 58, 94, 0.56) 0%,
+    rgba(42, 58, 94, 0.618) 100%
+  );
 }
 
 .hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-.hero-text {
   text-align: center;
-  color: var(--primary);
+  max-width: 800px;
+  padding: 0 2rem;
+  animation: fadeInUp 1s ease-out;
 }
 
-.hero-text h1 {
-  font-size: 2rem;
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.hero-text p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  color: var(--accent);
+.gold {
+  color: var(--gold);
 }
 
-.hero-text button {
-  background-color: var(--highlight);
-  color: white;
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--burgundy);
+  color: var(--cream);
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.8rem 2rem;
   font-size: 1rem;
+  border-radius: 30px;
   cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
 }
 
-.hero-text button:hover {
-  background-color: var(--primary);
+.btn-primary:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.hero-image img {
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+.btn-secondary {
+  background: transparent;
+  color: var(--cream);
+  border: 2px solid var(--cream);
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
 }
 
-@media (min-width: 768px) {
-  .hero-content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.btn-secondary:hover {
+  background: rgba(248, 244, 233, 0.1);
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-3px);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+.chevron {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid var(--gold);
+  border-right: 2px solid var(--gold);
+  transform: rotate(45deg);
+  margin: -10px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-20px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
   }
 
-  .hero-text {
-    flex: 1;
-    text-align: left;
+  .hero-subtitle {
+    font-size: 1rem;
   }
 
-  .hero-text h1 {
-    font-size: 3rem;
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .hero-text p {
-    font-size: 1.2rem;
-  }
-
-  .hero-image {
-    flex: 1;
-    padding-left: 2rem;
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
   }
 }
 </style>
