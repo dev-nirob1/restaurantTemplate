@@ -1,5 +1,5 @@
 <script setup>
-import BaseButton from '../Elements/BaseButton.vue';
+import ListItem from '../Elements/ListItem.vue';
 import BaseParagraph from '../Elements/BaseParagraph.vue';
 import SubTitle from '../Elements/SubTitle.vue';
 
@@ -154,7 +154,13 @@ const currentYear = new Date().getFullYear();
   flex-direction: column;
   gap: 1rem;
 }
-
+.footer ul li {
+    margin: 0;
+    padding: 0;
+}
+.footer li i {
+    color: var(--secondary-color);
+}
 .footer ul a {
   text-decoration: none;
   transition: all 0.3s ease;
@@ -166,29 +172,6 @@ const currentYear = new Date().getFullYear();
 .footer ul a:hover {
   color: var(--secondary-color);
   padding-left: 5px;
-}
-
-/* Newsletter form */
-.subscribe-form {
-  display: flex;
-}
-
-.subscribe-form input {
-  flex: 1;
-  padding: 0.8rem 1.2rem;
-  border: none;
-  border-radius: 0.5rem 0 0 0.5rem;
-  outline: none;
-  font-size: 0.95rem;
-  background-color: var(--white-color);
-}
-
-.subscribe-form .btn {
-  padding: 1rem 2rem;
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  border: none;
-  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 /* Footer copyright bar*/
