@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue';
+import BaseButton from '../Elements/BaseButton.vue';
 
 const isMenuOpen = ref(false)
 
@@ -59,7 +60,13 @@ onMounted(() => {
         <ListItem>
           <a href="#testimonials">Testimonials</a>
         </ListItem>
+
+        <ListItem class="btn-mobile">
+          <BaseButton class="bg-alternative">List Your Property</BaseButton>
+        </ListItem>
       </ul>
+      <!-- Button to start property listing process -->
+      <BaseButton class="btn-desktop bg-alternative">List Your Property</BaseButton>
     </nav>
   </header>
 </template>
@@ -96,11 +103,11 @@ onMounted(() => {
 .logo-icon {
   width: 32px;
   height: 32px;
-  color: var(--secondary-color);
+  color: var(--alternative-color);
 }
 
 .logo-text span {
-  color: var(--secondary-color);
+  color: var(--alternative-color);
 }
 
 .navbar a {
@@ -160,6 +167,14 @@ onMounted(() => {
   justify-content: center;
 }
 
+/* cta button hidden/vissible */
+.btn-desktop {
+  display: none;
+}
+
+.btn-mobile {
+  display: block;
+}
 
 @media (min-width: 992px) {
   .navbar ul {
@@ -179,7 +194,7 @@ onMounted(() => {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--secondary-color);
+    background: var(--alternative-color);
     transition: width 0.3s ease;
   }
 
@@ -192,5 +207,13 @@ onMounted(() => {
     display: none;
   }
 
+  /* cta button hidden/vissible */
+  .btn-desktop {
+    display: block;
+  }
+
+  .btn-mobile {
+    display: none;
+  }
 }
 </style>

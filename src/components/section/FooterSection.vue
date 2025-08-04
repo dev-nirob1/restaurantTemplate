@@ -1,116 +1,115 @@
+<script setup>
+import BaseButton from '../Elements/BaseButton.vue';
+import BaseParagraph from '../Elements/BaseParagraph.vue';
+import SubTitle from '../Elements/SubTitle.vue';
+
+const currentYear = new Date().getFullYear();
+
+</script>
 <template>
   <footer class="footer">
-    <div class="footer-container">
-      <!-- Brand Column -->
-      <div class="footer-brand">
-        <h3 class="logo">
-          <span class="gold">Epicurean</span>Elegance
-        </h3>
-        <p class="tagline">Where culinary art meets unforgettable experiences.</p>
+    <div class="container medium-2 large-3 gap-2 py-2">
+      <div>
+        <a href="/" class="logo">
+          <!-- <img class="height-full width-full" src="/logo.png" alt="logo" /> -->
+          <div>
+            <span>Ranna Bari</span>
+            <p>Feast Like Royalty.</p>
+          </div>
+        </a>
+        <BaseParagraph>Your gateway to exclusive discounts and savings</BaseParagraph>
         <div class="social-links">
-          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-tripadvisor"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-pinterest-p"></i></a>
         </div>
       </div>
-
-      <!-- Quick Links -->
-      <div class="footer-links">
-        <h4 class="footer-title">Quick Links</h4>
-        <ul>
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/menu">Seasonal Menu</router-link></li>
-          <li><router-link to="/about">Our Chefs</router-link></li>
-          <li><router-link to="/gallery">Food Gallery</router-link></li>
-          <li><router-link to="/contact">Contact</router-link></li>
+      <div>
+        <SubTitle>Quick Links</SubTitle>
+        <ul class="footer-links">
+          <ListItem>
+            <a href="#">Home</a>
+          </ListItem>
+          <ListItem>
+            <a href="#">Seasonal Menu</a>
+          </ListItem>
+          <ListItem>
+            <a href="#">Our Chefs</a>
+          </ListItem>
+          <ListItem>
+            <a href="#">Food Gallery</a>
+          </ListItem>
+          <ListItem>
+            <a href="#">Contact</a>
+          </ListItem>
         </ul>
       </div>
 
-      <!-- Contact Info -->
-      <div class="footer-contact">
-        <h4 class="footer-title">Visit Us</h4>
-        <ul>
-          <li><i class="fas fa-map-marker-alt"></i> 123 Gourmet Avenue, Foodie City</li>
-          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-          <li><i class="fas fa-envelope"></i> reservations@epicureanelegance.com</li>
-          <li><i class="fas fa-clock"></i> Tue-Sun: 5:30 PM - 11:00 PM</li>
+      <div>
+        <SubTitle>Visit Us</SubTitle>
+        <ul class="footer-links">
+          <ListItem>
+            <i class="fas fa-map-marker-alt"></i> 123 Gourmet Avenue, Foodie City
+          </ListItem>
+          <ListItem>
+            <i class="fas fa-phone"></i> +1 (555) 123-4567
+          </ListItem>
+          <ListItem>
+            <i class="fas fa-envelope"></i> reservations@ghorbari.com
+          </ListItem>
+          <ListItem>
+            <i class="fas fa-clock"></i> Tue-Sun: 5:30 PM - 11:00 PM
+          </ListItem>
         </ul>
       </div>
 
     </div>
 
-    <!-- Copyright -->
-    <div class="copyright">
-      <p>&copy; {{ new Date().getFullYear() }} Epicurean Elegance. All rights reserved.</p>
-      <div class="legal-links">
-        <router-link to="/privacy">Privacy Policy</router-link>
-        <router-link to="/terms">Terms of Service</router-link>
+    <!-- Copyright & Bottom Bar -->
+    <div class="footer-bottom">
+     <p>&copy; {{ new Date().getFullYear() }} Ranna Bari. All rights reserved.</p>
+     <div class="flex align-center justify-center gap-1">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
       </div>
     </div>
   </footer>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      email: ''
-    }
-  },
-  methods: {
-    subscribe() {
-      alert(`Thank you for subscribing with ${this.email}!`);
-      this.email = '';
-    }
-  }
-}
-</script>
-
-<style >
-/* Color Variables */
-:root {
-  --navy: #2A3A5E;
-  --gold: #D4AF37;
-  --cream: #F8F4E9;
-  --sage: #A4B494;
-  --burgundy: #6D2E46;
-}
-
-/* Footer Base Styles */
+<style scoped>
 .footer {
-  background-color: var(--navy);
-  color: var(--cream);
-  padding: 4rem 0 0;
+  background-color: var(--primary-color);
+  color: var(--white-color);
 }
 
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-}
-
-/* Brand Column */
-.footer-brand {
-  margin-bottom: 2rem;
+.footer h5 {
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+  color: var(--secondary-color)
 }
 
 .logo {
-  font-family: 'Playfair Display', serif;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logo span {
   font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: var(--cream);
+  font-weight: bold;
 }
 
-.gold {
-  color: var(--gold);
+.logo p {
+  margin-top: -.25rem;
+  font-size: 0.9rem;
 }
 
-.tagline {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+.logo img {
+  height: 50px;
+  width: 50px;
 }
 
 .social-links {
@@ -118,146 +117,85 @@ export default {
   gap: 1rem;
 }
 
-.social-icon {
-  color: var(--cream);
-  background: rgba(248, 244, 233, 0.1);
-  width: 36px;
+/* Social links with hover effects */
+.social-links a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.25rem;
   height: 36px;
+  width: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s;
+  background-color: rgba(248, 244, 233, 0.1);
 }
 
-.social-icon:hover {
-  background: var(--gold);
-  color: var(--navy);
-  transform: translateY(-3px);
+.social-links a:hover i {
+  transform: scale(1.2);
+  transition: all 0.3s ease;
 }
 
-/* Links Section */
-.footer-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
-  color: var(--gold);
-  position: relative;
-  display: inline-block;
-}
-
-.footer-title::after {
-  content: '';
+.footer h5::after {
+  content: "";
   position: absolute;
-  bottom: -8px;
   left: 0;
+  bottom: 0;
   width: 50px;
   height: 2px;
-  background: var(--gold);
+  background-color: var(--secondary-color);
 }
 
-.footer-links ul,
-.footer-contact ul {
+.footer ul {
   list-style: none;
   padding: 0;
-}
-
-.footer-links li,
-.footer-contact li {
-  margin-bottom: 0.8rem;
-}
-
-.footer-links a,
-.footer-contact a {
-  color: var(--cream);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-links a:hover {
-  color: var(--gold);
-}
-
-.footer-contact i {
-  color: var(--gold);
-  width: 20px;
-  margin-right: 10px;
-}
-
-/* Newsletter */
-.newsletter-form {
+  margin: 0;
   display: flex;
-  margin-top: 1rem;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.newsletter-form input {
-  flex: 1;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 4px 0 0 4px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.subscribe-btn {
-  background: var(--burgundy);
-  color: var(--cream);
-  border: none;
-  padding: 0 1.2rem;
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.subscribe-btn:hover {
-  background: var(--gold);
-  color: var(--navy);
-}
-
-/* Copyright */
-.copyright {
-  background: rgba(0, 0, 0, 0.2);
-  padding: 1.5rem 0;
-  margin-top: 3rem;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-.legal-links {
-  margin-top: 0.5rem;
-}
-
-.legal-links a {
-  color: var(--cream);
-  margin: 0 10px;
+.footer ul a {
   text-decoration: none;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.legal-links a:hover {
-  color: var(--gold);
+.footer ul a:hover {
+  color: var(--secondary-color);
+  padding-left: 5px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .footer-brand,
-  .footer-links,
-  .footer-contact,
-  .footer-newsletter {
-    text-align: center;
-  }
-  
-  .footer-title::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .social-links {
-    justify-content: center;
-  }
+/* Newsletter form */
+.subscribe-form {
+  display: flex;
+}
+
+.subscribe-form input {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+  outline: none;
+  font-size: 0.95rem;
+  background-color: var(--white-color);
+}
+
+.subscribe-form .btn {
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Footer copyright bar*/
+.footer-bottom {
+  padding: 1.5rem;
+  font-size: 14px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
 }
 </style>
