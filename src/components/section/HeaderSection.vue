@@ -37,36 +37,28 @@ onMounted(() => {
         <i :class="isMenuOpen ? 'fas fa-xmark' : 'fas fa-bars'" class="fa-2xl"></i>
       </BaseButton>
       <!-- Logo -->
-      <a href="/" class="logo">
-        <div class="logo-icon">
-          <i class="fa-solid fa-map-location-dot"></i>
-        </div>
-        <span class="logo-text">Ghor<span>Bari</span></span>
-      </a>
+     <a href="#" class="logo">
+          <!-- <img class="height-full width-full" src="/logo.png" alt="logo" /> -->
+          <div>
+            <span>RannaBari</span>
+            <p>Feast Like Royalty.</p>
+          </div>
+        </a>
       <!-- Navigation Links -->
       <ul :class="{ 'active': isMenuOpen }">
         <ListItem>
           <a href="#">Home</a>
         </ListItem>
         <ListItem>
-          <a href="#featured">Featured</a>
+          <a href="#menu">Menu</a>
         </ListItem>
         <ListItem>
-          <a href="#cities">Explore Cities</a>
+          <a href="#our-story">Our Story</a>
         </ListItem>
         <ListItem>
-          <a href="#properties">Properties</a>
-        </ListItem>
-        <ListItem>
-          <a href="#testimonials">Testimonials</a>
-        </ListItem>
-
-        <ListItem class="btn-mobile">
-          <BaseButton class="bg-alternative">List Your Property</BaseButton>
+          <a href="#reservation">Reservation</a>
         </ListItem>
       </ul>
-      <!-- Button to start property listing process -->
-      <BaseButton class="btn-desktop bg-alternative">List Your Property</BaseButton>
     </nav>
   </header>
 </template>
@@ -82,10 +74,10 @@ onMounted(() => {
   backdrop-filter: blur(50px);
   color: var(--white-color);
   box-shadow: var(--box-shadow);
-  padding: 0.75rem 0;
   position: fixed;
   top: 0;
   left: 0;
+  padding: .5rem 0;
   width: 100%;
   z-index: 999;
 }
@@ -94,20 +86,19 @@ onMounted(() => {
 .logo {
   display: flex;
   align-items: center;
-  gap: .25rem;
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin: 0;
+  gap: 0.5rem;
+  padding: 0;
+  text-decoration: none;
 }
 
-.logo-icon {
-  width: 32px;
-  height: 32px;
-  color: var(--alternative-color);
+.logo span {
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
-.logo-text span {
-  color: var(--alternative-color);
+.logo p {
+  margin: -.25rem 0 0 0;
+  font-size: 0.9rem;
 }
 
 .navbar a {
@@ -116,10 +107,7 @@ onMounted(() => {
 
 .navbar ul {
   display: flex;
-  align-items: center;
-}
-
-.navbar ul {
+  align-items: start;
   list-style: none;
   position: fixed;
   top: 5.25rem;
@@ -128,7 +116,6 @@ onMounted(() => {
   margin: 0;
   background: var(--primary-color);
   flex-direction: column;
-  align-items: flex-start;
   padding: 2rem;
   gap: 1.5rem;
   transition: all 0.3s ease-in-out;
@@ -167,21 +154,12 @@ onMounted(() => {
   justify-content: center;
 }
 
-/* cta button hidden/vissible */
-.btn-desktop {
-  display: none;
-}
-
-.btn-mobile {
-  display: block;
-}
-
 @media (min-width: 992px) {
   .navbar ul {
     position: inherit;
     width: 100%;
     flex-direction: row;
-    justify-content: center;
+    justify-content: end;
     background-color: transparent;
     padding: 0.75rem 0;
   }
@@ -204,15 +182,6 @@ onMounted(() => {
 
   /* expand navlinks on desktop  */
   .hamburger {
-    display: none;
-  }
-
-  /* cta button hidden/vissible */
-  .btn-desktop {
-    display: block;
-  }
-
-  .btn-mobile {
     display: none;
   }
 }
