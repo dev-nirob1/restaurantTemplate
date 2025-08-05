@@ -15,7 +15,7 @@
       <h1 class="hero-title">Savor the <span class="gold">Art</span> of Dining</h1>
       <p class="hero-subtitle">Where every dish tells a story, crafted with locally-sourced ingredients.</p>
       <div class="hero-buttons">
-        <button class="btn-primary">Reserve a Table</button>
+        <button class="btn-primary bg-secondary">Reserve a Table</button>
         <button class="btn-secondary">Explore Menu</button>
       </div>
     </div>
@@ -113,7 +113,7 @@ export default {
 }
 
 .btn-primary {
-  background: var(--burgundy);
+  background: var(--alternative-color);
   color: var(--cream);
   border: none;
   padding: 0.8rem 2rem;
@@ -135,7 +135,7 @@ export default {
 .btn-secondary {
   background: transparent;
   color: var(--cream);
-  border: 2px solid var(--cream);
+  border: 2px solid var(--secondary-color);
   padding: 0.8rem 2rem;
   font-size: 1rem;
   border-radius: 30px;
@@ -147,7 +147,7 @@ export default {
 
 .btn-secondary:hover {
   background: rgba(248, 244, 233, 0.1);
-  border-color: var(--gold);
+  border-color: var(--secondary-color);
   color: var(--gold);
   transform: translateY(-3px);
 }

@@ -66,7 +66,7 @@ export default {
 }
 </script>
 
-<style setup>
+<style >
 /* Color Variables */
 :root {
   --navy: #2A3A5E;

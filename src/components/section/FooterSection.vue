@@ -81,7 +81,6 @@ const currentYear = new Date().getFullYear();
 .footer {
   background-color: var(--primary-color);
   color: var(--white-color);
-  padding: 0;
 }
 
 .footer h5 {
