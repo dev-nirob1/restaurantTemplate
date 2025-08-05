@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue';
 import BaseButton from '../Elements/BaseButton.vue';
 import BaseParagraph from '../Elements/BaseParagraph.vue';
 import BaseTitle from '../Elements/BaseTitle.vue';
+import ListItem from '../Elements/ListItem.vue';
 
 const isMenuOpen = ref(false)
 
@@ -35,17 +36,18 @@ onMounted(() => {
   <header class="navbar">
     <nav class="flex justify-between align-center gap-1 container">
       <!-- Mobile Menu Toggle Button -->
+
+      <!-- Logo -->
+      <div class="logo">
+        <!-- <img class="height-full width-full" src="/logo.png" alt="logo" /> -->
+        <div>
+          <BaseTitle>RannaBari</BaseTitle>
+          <BaseParagraph>Feast Like Royalty.</BaseParagraph>
+        </div>
+      </div>
       <BaseButton class="hamburger" @click="toggleMenu">
         <i :class="isMenuOpen ? 'fas fa-xmark' : 'fas fa-bars'" class="fa-2xl"></i>
       </BaseButton>
-      <!-- Logo -->
-     <div class="logo">
-          <!-- <img class="height-full width-full" src="/logo.png" alt="logo" /> -->
-          <div>
-            <BaseTitle>RannaBari</BaseTitle>
-            <BaseParagraph>Feast Like Royalty.</BaseParagraph>
-          </div>
-        </div>
       <!-- Navigation Links -->
       <ul :class="{ 'active': isMenuOpen }">
         <ListItem>
@@ -72,18 +74,6 @@ onMounted(() => {
   transition: background-color 0.3s ease;
 }
 
-.navbar {
-  backdrop-filter: blur(50px);
-  color: var(--white-color);
-  box-shadow: var(--box-shadow);
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: .5rem 0;
-  width: 100%;
-  z-index: 999;
-}
-
 /* Logo Styles */
 .logo {
   display: flex;
@@ -99,34 +89,42 @@ onMounted(() => {
 }
 
 .logo p {
-  margin: -.25rem 0 0 0;
+  margin: 0;
+  padding: 0;
   font-size: 0.9rem;
+}
+
+.navbar {
+  backdrop-filter: blur(50px);
+  color: var(--white-color);
+  box-shadow: var(--box-shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: .5rem 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.navbar ul {
+  position: absolute;
+  left: -100%;
+  top: 0;
+  list-style: none;
+  padding: 2rem;
+  margin: 0;
+  background-color: var(--primary-color);
+  height: 100vh;
+  width: 60%;
+  transition: all .5s;
+}
+
+.navbar .active {
+  left: 0;
 }
 
 .navbar a {
   text-decoration: none;
-}
-
-.navbar ul {
-  display: flex;
-  align-items: start;
-  list-style: none;
-  position: fixed;
-  top: 5.25rem;
-  left: -100%;
-  width: 80%;
-  margin: 0;
-  background: var(--primary-color);
-  flex-direction: column;
-  padding: 2rem;
-  gap: 1.5rem;
-  transition: all 0.3s ease-in-out;
-}
-
-.navbar ul.active {
-  top: 5.25rem;
-  left: 0;
-  color: var(--white-color);
 }
 
 .navbar ul li a {
@@ -135,12 +133,6 @@ onMounted(() => {
   font-weight: 500;
   transition: color 0.3s ease-in-out;
   padding: 0.5rem 0;
-}
-
-.navbar .btn {
-  border-radius: .75rem 0 .75rem 0;
-  color: var(--primary-color);
-  white-space: nowrap
 }
 
 /* Mobile menu toggle */
@@ -159,11 +151,13 @@ onMounted(() => {
 @media (min-width: 992px) {
   .navbar ul {
     position: inherit;
-    width: 100%;
-    flex-direction: row;
-    justify-content: end;
-    background-color: transparent;
-    padding: 0.75rem 0;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    gap: 2rem;
+    background: transparent;
+    padding: 0;
   }
 
   /* Desktop menu hover effects */
