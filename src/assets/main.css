@@ -14,6 +14,7 @@ html {
   --secondary-color: #D4AF37;  
   --alternative-color: #6D2E46;  
   --white-color: #F8F4E9;
+  --border-color: #ccc;
   /* ---------------typography------------ */
   /* headings  */
   --heading-1: 1.5rem;
