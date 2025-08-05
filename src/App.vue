@@ -4,6 +4,7 @@ import FooterSectionTwo from './components/section/FooterSectionTwo.vue';
 import HeaderSection from './components/section/HeaderSection.vue';
 import HeroSection from './components/section/HeroSection.vue';
 import HeroSectionTwo from './components/section/HeroSectionTwo.vue';
+import ReservationSection from './components/section/ReservationSection.vue';
 
 </script>
 
@@ -11,6 +12,7 @@ import HeroSectionTwo from './components/section/HeroSectionTwo.vue';
   <HeaderSection />
   <HeroSectionTwo/>
   <HeroSection/>
+  <ReservationSection/>
   <!-- <FooterSectionTwo /> -->
   <FooterSection/>
 </template>
