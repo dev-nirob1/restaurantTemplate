@@ -51,7 +51,6 @@ import BaseTitle from '../Elements/BaseTitle.vue';
 
 .special-section p {
     margin: 10px 0;
-    line-height: 1.6;
 }
 
 .special-section .price {
