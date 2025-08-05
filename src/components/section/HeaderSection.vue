@@ -168,7 +168,7 @@ onMounted(() => {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--alternative-color);
+    background: var(--secondary-color);
     transition: width 0.3s ease;
   }
 

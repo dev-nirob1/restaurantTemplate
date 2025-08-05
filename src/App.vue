@@ -9,8 +9,8 @@ import HeroSectionTwo from './components/section/HeroSectionTwo.vue';
 
 <template>
   <HeaderSection />
-  <HeroSection/>
   <HeroSectionTwo/>
+  <HeroSection/>
   <!-- <FooterSectionTwo /> -->
   <FooterSection/>
 </template>
