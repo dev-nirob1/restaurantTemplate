@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import BaseParagraph from '../Elements/BaseParagraph.vue';
 import BaseTitle from '../Elements/BaseTitle.vue';
 import ListItem from '../Elements/ListItem.vue';
@@ -6,7 +6,7 @@ import ListItem from '../Elements/ListItem.vue';
 
 <template>
   <!-- ======== Why Choose Us section ======== -->
-  <section class="bg-white statistics">
+  <section class="statistics">
     <div class="container">
       <ul class="small-2 larger-3 justify-center align-center gap-2">
         <!-- Dishes Served -->
