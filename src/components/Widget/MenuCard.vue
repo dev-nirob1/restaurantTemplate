@@ -46,7 +46,7 @@ defineProps({
 }
 
 .menu-card p {
-    margin-top: .5rem;
+    margin: .5rem 0;
 }
 
 .menu-card .image {
@@ -69,9 +69,5 @@ defineProps({
 
 .menu-card .image:hover img {
     transform: scale(1.1);
-}
-
-.menu-card .btn {
-    padding: .75rem 1.5rem;
 }
 </style>

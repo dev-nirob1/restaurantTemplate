@@ -44,7 +44,7 @@ const featuredMenu = [
 
 </script>
 <template>
-    <section id="featured-menu" class="menu-section">
+    <section id="menu" class="menu-section">
         <div class="container">
             <div class="text-center mb-2">
                 <BaseTitle>Featured Menu</BaseTitle>
