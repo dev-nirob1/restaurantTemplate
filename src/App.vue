@@ -1,4 +1,5 @@
 <script setup>
+import ChefSpecial from './components/section/ChefSpecial.vue';
 import FeaturedMenu from './components/section/FeaturedMenu.vue';
 import FooterSection from './components/section/FooterSection.vue';
 // import FooterSectionTwo from './components/section/FooterSectionTwo.vue';
@@ -13,6 +14,7 @@ import ReservationSection from './components/section/ReservationSection.vue';
   <HeaderSection />
   <HeroSectionTwo/>
   <FeaturedMenu/>
+  <ChefSpecial/>
   <!-- <HeroSection/> -->
   <ReservationSection/>
   <!-- <FooterSectionTwo /> -->
