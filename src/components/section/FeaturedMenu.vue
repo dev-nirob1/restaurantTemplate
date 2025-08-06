@@ -44,22 +44,21 @@ const featuredMenu = [
 
 </script>
 <template>
-    <section id="menu" class="menu-section">
-        <div class="container">
-            <div class="text-center mb-2">
-                <BaseTitle>Featured Menu</BaseTitle>
-                <BaseParagraph>Discover our chef’s handpicked favorites</BaseParagraph>
-            </div>
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="text-center mb-2">
+        <BaseTitle>Featured Menu</BaseTitle>
+      </div>
 
-            <div class="medium-2 large-3 gap-2">
-                <MenuCard v-for="(menu, i) in featuredMenu" :key="i" :menu="menu" />
-            </div>
-        </div>
-    </section>
+      <div class="medium-2 large-3 gap-2">
+        <MenuCard v-for="(menu, i) in featuredMenu" :key="i" :menu="menu" />
+      </div>
+    </div>
+  </section>
 </template>
 
 <style scoped>
 .menu-section {
-    padding: 3.75rem 0;
+  padding: 3.75rem 0;
 }
 </style>

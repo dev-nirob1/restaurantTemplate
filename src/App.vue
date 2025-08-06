@@ -1,6 +1,5 @@
 <script setup>
 import AboutUs from './components/section/AboutUs.vue';
-import ChefSpecial from './components/section/ChefSpecial.vue';
 import FeaturedMenu from './components/section/FeaturedMenu.vue';
 import FooterSection from './components/section/FooterSection.vue';
 // import FooterSectionTwo from './components/section/FooterSectionTwo.vue';
@@ -9,6 +8,8 @@ import HeaderSection from './components/section/HeaderSection.vue';
 import HeroSectionTwo from './components/section/HeroSectionTwo.vue';
 import ReservationSection from './components/section/ReservationSection.vue';
 import WhyChoose from './components/section/WhyChoose.vue';
+import SpecialOffer from './components/section/SpecialOffer.vue';
+import OurMenu from './components/section/OurMenu.vue';
 
 </script>
 
@@ -16,12 +17,11 @@ import WhyChoose from './components/section/WhyChoose.vue';
   <HeaderSection />
   <HeroSectionTwo/>
   <WhyChoose/>
+  <OurMenu/>
   <AboutUs/>
   <FeaturedMenu/>
-  <ChefSpecial/>
-  <!-- <HeroSection/> -->
+  <SpecialOffer/>
   <ReservationSection/>
-  <!-- <FooterSectionTwo /> -->
   <FooterSection/>
 </template>
 
