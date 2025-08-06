@@ -38,18 +38,18 @@ onMounted(() => {
       <!-- Mobile Menu Toggle Button -->
 
       <!-- Logo -->
-      <div class="logo">
+      <a href="#" class="logo">
         <!-- <img class="height-full width-full" src="/logo.png" alt="logo" /> -->
         <div>
           <BaseTitle>RannaBari</BaseTitle>
           <BaseParagraph>Feast Like Royalty.</BaseParagraph>
         </div>
-      </div>
+      </a>
       <BaseButton class="hamburger" @click="toggleMenu">
         <i :class="isMenuOpen ? 'fas fa-xmark' : 'fas fa-bars'" class="fa-2xl"></i>
       </BaseButton>
       <!-- Navigation Links -->
-      <ul :class="{ 'active': isMenuOpen }">
+      <ul class="nav-links" :class="{ 'active': isMenuOpen }">
         <ListItem>
           <a href="#">Home</a>
         </ListItem>

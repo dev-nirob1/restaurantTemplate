@@ -1,155 +1,130 @@
-<template>
-  <section class="category-menu-section">
-    <h2 class="section-title">Explore Our Menu</h2>
-
-    <!-- Tabs -->
-    <div class="tabs">
-      <button
-        v-for="cat in categories"
-        :key="cat"
-        @click="activeCategory = cat"
-        :class="['tab', { active: activeCategory === cat }]"
-      >
-        {{ cat }}
-      </button>
-    </div>
-
-    <!-- Menu Items -->
-    <div class="medium-2">
-      <div
-        v-for="item in filteredMenu"
-        :key="item.name"
-        class="menu-card"
-      >
-        <img :src="item.image" :alt="item.name" />
-        <h3>{{ item.name }}</h3>
-        <p>{{ item.description }}</p>
-        <span class="price">${{ item.price }}</span>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue';
+import MenuCard from '../Widget/MenuCard.vue';
+import ListItem from '../Elements/ListItem.vue';
+import BaseButton from '../Elements/BaseButton.vue';
 
-const activeCategory = ref('Starters')
+const selectedId = ref(1)
 
-const categories = ['Starters', 'Main Course', 'Desserts', 'Drinks']
+const ourMenu = ref([
+    {
+        "id": 1,
+        "title": "Restaurant Solution",
+        "image": "https://zems.uk/uploads/media/1747030497.gif",
+        "alt": "Restaurant management system",
+        "subtitle": "A complete restaurant solution",
+        "description": "Scale your restaurant business efficiently with our end-to-end management system designed to optimize every aspect of your operations including:",
+        "features": [
+            "Table management & reservations",
+            "Integrated POS with kitchen display",
+            "Inventory tracking & supplier management",
+            "Staff scheduling & performance analytics",
+            "Customer loyalty programs"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Grocery POS",
+        "image": "https://zems.uk/uploads/media/1744799107.gif",
+        "alt": "Grocery point of sale system",
+        "subtitle": "Modern grocery store management",
+        "description": "Modernize every aspect of your grocery store management - from checkout to inventory - with our all-in-one POS solution featuring:",
+        "features": [
+            "Barcode scanning & inventory management",
+            "Fresh produce weighing integration",
+            "Supplier ordering automation",
+            "Expiry date tracking",
+            "Mobile payment integration"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Real Estate App",
+        "image": "https://zems.uk/uploads/media/1744799207.gif",
+        "alt": "Real estate application",
+        "subtitle": "Comprehensive property management",
+        "description": "Revolutionize your real estate business with our powerful digital platform, designed to streamline operations and boost sales through innovative features like:",
+        "features": [
+            "Property listing management",
+            "Virtual tour integration",
+            "Client CRM system",
+            "Automated document generation",
+            "Market analytics dashboard"
+        ]
+    }
+])
+const currentTab = (id) => {
+    selectedId.value = id;
+}
+const menu = computed(() => {
+    return ourMenu.value.find(data => data.id === selectedId.value)
+})
 
-const menuItems = [
-  {
-    name: 'Garlic Bread',
-    category: 'Starters',
-    image: 'https://via.placeholder.com/150',
-    description: 'Toasted bread with garlic and herbs.',
-    price: 5.99,
-  },
-  {
-    name: 'Grilled Chicken',
-    category: 'Main Course',
-    image: 'https://via.placeholder.com/150',
-    description: 'Juicy grilled chicken with seasonal vegetables.',
-    price: 12.99,
-  },
-  {
-    name: 'Chocolate Cake',
-    category: 'Desserts',
-    image: 'https://via.placeholder.com/150',
-    description: 'Rich and moist dark chocolate cake.',
-    price: 6.5,
-  },
-  {
-    name: 'Lemonade',
-    category: 'Drinks',
-    image: 'https://via.placeholder.com/150',
-    description: 'Freshly squeezed lemonade with mint.',
-    price: 3.99,
-  },
-  // Add more items if needed
-]
-
-const filteredMenu = computed(() =>
-  menuItems.filter(item => item.category === activeCategory.value)
-)
 </script>
 
+<template>
+    <section class="our-menu">
+        <div class="container">
+
+            <div class="tab-panel">
+                <ul>
+                    <ListItem v-for="(tab, i) in ourMenu" :key="i">
+                        <BaseButton :class="{ 'bg-primary': selectedId === tab.id }" @click="currentTab(tab.id)">{{
+                            tab.title }}
+                        </BaseButton>
+                    </ListItem>
+                </ul>
+            </div>
+
+            <div class="medium-2 gap-2 align-center">
+                <MenuCard v-for="item in menu" :key="item.id" :menu="menu"/>
+            </div>
+        </div>
+    </section>
+</template>
+
 <style scoped>
-.category-menu-section {
-  padding: 4rem 1rem;
-  background-color: #fff7f3;
-  text-align: center;
+.our-menu {
+    padding: 3.75rem 0;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #2c2c2c;
+.tab-panel ul {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 3rem 0;
 }
 
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
+.tab-panel ul li .btn {
+    padding: .75rem 1rem;
+    margin: 0;
 }
 
-.tab {
-  padding: 0.5rem 1.5rem;
-  border: 2px solid #6b1e1e;
-  background-color: transparent;
-  color: #6b1e1e;
-  cursor: pointer;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+.our-menu .app-image {
+    height: 100%;
+    width: 100%;
 }
 
-.tab.active,
-.tab:hover {
-  background-color: #6b1e1e;
-  color: white;
+.our-menu .app-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
+.our-menu .btn {
+    padding: .75rem 1rem;
 }
 
-.menu-card {
-  background: white;
-  padding: 1rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-}
+@media (min-width: 768px) {
+    .our-menu .btn {
+        font-size: 1.15rem;
+        margin-top: .5rem;
+    }
 
-.menu-card:hover {
-  transform: translateY(-5px);
-}
-
-.menu-card img {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.menu-card h3 {
-  font-size: 1.2rem;
-  margin: 0.75rem 0 0.25rem;
-  color: #333;
-}
-
-.menu-card p {
-  font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 0.5rem;
-}
-
-.price {
-  font-weight: bold;
-  color: #6b1e1e;
+    .tab-panel ul li .btn {
+        font-size: 1.15rem;
+        padding: 1.15rem 2rem;
+    }
 }
 </style>

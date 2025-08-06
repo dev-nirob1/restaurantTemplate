@@ -1,5 +1,6 @@
 <script setup>
 import BaseButton from '../Elements/BaseButton.vue';
+import BaseParagraph from '../Elements/BaseParagraph.vue';
 import BaseTextArea from '../Elements/BaseTextArea.vue';
 import BaseTitle from '../Elements/BaseTitle.vue'
 import InputField from '../Elements/InputField.vue'
