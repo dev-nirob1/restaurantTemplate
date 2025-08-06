@@ -3,61 +3,92 @@ import { computed, ref } from 'vue';
 import MenuCard from '../Widget/MenuCard.vue';
 import ListItem from '../Elements/ListItem.vue';
 import BaseButton from '../Elements/BaseButton.vue';
+import BaseTitle from '../Elements/BaseTitle.vue';
 
-const selectedId = ref(1)
+const selectedCategory = ref('Starters')
 
 const ourMenu = ref([
     {
-        "id": 1,
-        "title": "Restaurant Solution",
-        "image": "https://zems.uk/uploads/media/1747030497.gif",
-        "alt": "Restaurant management system",
-        "subtitle": "A complete restaurant solution",
-        "description": "Scale your restaurant business efficiently with our end-to-end management system designed to optimize every aspect of your operations including:",
-        "features": [
-            "Table management & reservations",
-            "Integrated POS with kitchen display",
-            "Inventory tracking & supplier management",
-            "Staff scheduling & performance analytics",
-            "Customer loyalty programs"
-        ]
+        id: 1,
+        category: 'Starters',
+        name: 'Garlic Bread',
+        description: 'Toasted bread with garlic, herbs, and olive oil.',
+        price: 5.99,
+        image: 'https://images.unsplash.com/photo-1621996346565-08cb32b2d9fa?auto=format&fit=crop&w=500&q=80'
     },
     {
-        "id": 2,
-        "title": "Grocery POS",
-        "image": "https://zems.uk/uploads/media/1744799107.gif",
-        "alt": "Grocery point of sale system",
-        "subtitle": "Modern grocery store management",
-        "description": "Modernize every aspect of your grocery store management - from checkout to inventory - with our all-in-one POS solution featuring:",
-        "features": [
-            "Barcode scanning & inventory management",
-            "Fresh produce weighing integration",
-            "Supplier ordering automation",
-            "Expiry date tracking",
-            "Mobile payment integration"
-        ]
+        id: 2,
+        category: 'Starters',
+        name: 'Caesar Salad',
+        description: 'Crisp romaine, creamy dressing, croutons, and parmesan.',
+        price: 7.49,
+        image: 'https://images.unsplash.com/photo-1604908177796-050f404dd76b?auto=format&fit=crop&w=500&q=80'
+    },
+
+    {
+        id: 3,
+        category: 'Main Course',
+        name: 'Grilled Salmon',
+        description: 'Fresh Atlantic salmon grilled to perfection with lemon butter.',
+        price: 22.99,
+        image: 'https://images.unsplash.com/photo-1661260652741-65340f04f2ff?q=80&w=1470&auto=format&fit=crop'
     },
     {
-        "id": 3,
-        "title": "Real Estate App",
-        "image": "https://zems.uk/uploads/media/1744799207.gif",
-        "alt": "Real estate application",
-        "subtitle": "Comprehensive property management",
-        "description": "Revolutionize your real estate business with our powerful digital platform, designed to streamline operations and boost sales through innovative features like:",
-        "features": [
-            "Property listing management",
-            "Virtual tour integration",
-            "Client CRM system",
-            "Automated document generation",
-            "Market analytics dashboard"
-        ]
+        id: 4,
+        category: 'Main Course',
+        name: 'Spaghetti Carbonara',
+        description: 'Classic Italian pasta with creamy sauce and crispy pancetta.',
+        price: 18.5,
+        image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80'
+    },
+    {
+        id: 5,
+        category: 'Main Course',
+        name: 'Margherita Pizza',
+        description: 'Stone-baked pizza with fresh mozzarella, tomato, and basil.',
+        price: 15.0,
+        image: 'https://images.unsplash.com/photo-1601924582975-4be52b1eb4e7?auto=format&fit=crop&w=500&q=80'
+    },
+
+    {
+        id: 6,
+        category: 'Desserts',
+        name: 'Chocolate Cake',
+        description: 'Rich and moist dark chocolate cake with ganache.',
+        price: 6.5,
+        image: 'https://images.unsplash.com/photo-1601979031925-082d6919d1fd?auto=format&fit=crop&w=500&q=80'
+    },
+    {
+        id: 7,
+        category: 'Desserts',
+        name: 'Strawberry Cheesecake',
+        description: 'Creamy cheesecake with a fresh strawberry topping.',
+        price: 7.0,
+        image: 'https://images.unsplash.com/photo-1612197393831-f3ce2c2fdfae?auto=format&fit=crop&w=500&q=80'
+    },
+
+    {
+        id: 8,
+        category: 'Drinks',
+        name: 'Lemonade',
+        description: 'Freshly squeezed lemonade with mint.',
+        price: 3.99,
+        image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80'
+    },
+    {
+        id: 9,
+        category: 'Drinks',
+        name: 'Iced Coffee',
+        description: 'Chilled coffee with cream and ice.',
+        price: 4.25,
+        image: 'https://images.unsplash.com/photo-1598515214213-46e571e29cbe?auto=format&fit=crop&w=500&q=80'
     }
 ])
-const currentTab = (id) => {
-    selectedId.value = id;
+const currentTab = (category) => {
+    selectedCategory.value = category;
 }
 const menu = computed(() => {
-    return ourMenu.value.find(data => data.id === selectedId.value)
+    return ourMenu.value.find(data => data.category === selectedCategory.value)
 })
 
 </script>
@@ -65,19 +96,20 @@ const menu = computed(() => {
 <template>
     <section class="our-menu">
         <div class="container">
-
+            <BaseTitle>Explore Our Food Category</BaseTitle>
             <div class="tab-panel">
                 <ul>
                     <ListItem v-for="(tab, i) in ourMenu" :key="i">
-                        <BaseButton :class="{ 'bg-primary': selectedId === tab.id }" @click="currentTab(tab.id)">{{
-                            tab.title }}
+                        <BaseButton :class="{ 'active': selectedCategory === tab.id }"
+                            @click="currentTab(tab.category)">{{
+                                tab.category }}
                         </BaseButton>
                     </ListItem>
                 </ul>
             </div>
 
             <div class="medium-2 gap-2 align-center">
-                <MenuCard v-for="item in menu" :key="item.id" :menu="menu"/>
+                <MenuCard v-for="item in menu" :key="item.id" :menu="menu" />
             </div>
         </div>
     </section>
@@ -90,6 +122,7 @@ const menu = computed(() => {
 
 .tab-panel ul {
     padding: 0;
+    list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -99,6 +132,13 @@ const menu = computed(() => {
 .tab-panel ul li .btn {
     padding: .75rem 1rem;
     margin: 0;
+    border-radius: 1.9rem;
+}
+
+.tab-panel ul li .btn.active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
 }
 
 .our-menu .app-image {
@@ -112,19 +152,10 @@ const menu = computed(() => {
     object-fit: cover;
 }
 
-.our-menu .btn {
-    padding: .75rem 1rem;
-}
-
 @media (min-width: 768px) {
-    .our-menu .btn {
-        font-size: 1.15rem;
-        margin-top: .5rem;
-    }
 
     .tab-panel ul li .btn {
-        font-size: 1.15rem;
-        padding: 1.15rem 2rem;
+        padding: 1rem 1.5rem;
     }
 }
 </style>

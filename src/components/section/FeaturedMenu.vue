@@ -1,5 +1,4 @@
 <script setup>
-import BaseParagraph from '../Elements/BaseParagraph.vue';
 import BaseTitle from '../Elements/BaseTitle.vue';
 import MenuCard from '../Widget/MenuCard.vue';
 

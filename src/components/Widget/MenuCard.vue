@@ -13,7 +13,7 @@ defineProps({
 
 <template>
     <div class="menu-card">
-        <BaseParagraph class="price">$ {{ menu.price }}</BaseParagraph>
+        <BaseParagraph class="price">${{ menu.price }}</BaseParagraph>
         <div class="image">
             <BaseImage :image="menu.image" alt="project image" />
         </div>
@@ -37,7 +37,8 @@ defineProps({
     right: 0;
     top: 0;
     padding: .75rem 2rem;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     margin: 0;
     border-top-right-radius: 1rem;
     color: var(--white-color);

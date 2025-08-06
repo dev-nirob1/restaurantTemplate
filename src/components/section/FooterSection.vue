@@ -68,10 +68,9 @@ const currentYear = new Date().getFullYear();
 
     <!-- Copyright & Bottom Bar -->
     <div class="footer-bottom">
-     <p>&copy; {{ new Date().getFullYear() }} Ranna Bari. All rights reserved.</p>
-     <div class="flex align-center justify-center gap-1">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+      <p>&copy; {{ new Date().getFullYear() }} Ranna Bari. All rights reserved.</p>
+      <div class="flex align-center justify-center gap-1">
+        <a href="#">Privacy Policy</a> <a href="#">Terms of Service</a>
       </div>
     </div>
   </footer>
@@ -154,14 +153,17 @@ const currentYear = new Date().getFullYear();
   flex-direction: column;
   gap: 1rem;
 }
+
 .footer ul li {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
+
 .footer li i {
-    color: var(--secondary-color);
-    margin-right: .25rem;
+  color: var(--secondary-color);
+  margin-right: .25rem;
 }
+
 .footer ul a {
   text-decoration: none;
   transition: all 0.3s ease;

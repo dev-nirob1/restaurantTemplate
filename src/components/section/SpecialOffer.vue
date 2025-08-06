@@ -46,14 +46,15 @@ import BaseTitle from '../Elements/BaseTitle.vue';
     height: 100%;
     object-fit: cover;
     border-radius: 1.5rem;
-    border: 2px solid var(--secondary-color);
+    border: 3px solid var(--secondary-color);
 }
 
 .special-section p {
-    margin: 10px 0;
+    margin: .75rem 0;
 }
 
 .special-section .price {
+    margin-top: 0;
     font-size: 1.4rem;
     font-weight: bold;
     color: var(--secondary-color);
@@ -63,15 +64,19 @@ import BaseTitle from '../Elements/BaseTitle.vue';
     width: fit-content;
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    padding: .75rem 2rem;
-    border-radius: 1.5rem;
+    padding: .75rem 1rem;
+    border-radius: 2rem;
     margin: 0;
 }
 
 .special-section .chef-note {
     font-style: italic;
     font-size: 0.9rem;
-    margin-top: 10px;
-    color: var(--border-color);
+    margin-top: .75rem;
+}
+@media (min-width: 768px) {
+    .special-section .btn {
+        padding: .8rem 2rem;
+    }
 }
 </style>

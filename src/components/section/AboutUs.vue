@@ -35,22 +35,26 @@ import HeroTitle from '../Elements/HeroTitle.vue';
 }
 
 .about-us .btn {
-    font-size: 1.25rem;
-    padding: .75rem 2rem;
-    border-radius: 1.5rem;
+    padding: .75rem 1rem;
+    border-radius: 2rem;
     color: var(--white-color);
     background-color: var(--alternative-color);
     border-color: var(--alternative-color);
 }
 
-.images {
+.about-us .images {
     width: 100%;
     height: auto;
 }
 
-.images img {
+.about-us .images img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+@media (min-width: 768px){
+.about-us .btn {
+padding: .8rem 2rem;
+}
 }
 </style>

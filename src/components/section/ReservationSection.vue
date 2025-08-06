@@ -27,7 +27,7 @@ import InputField from '../Elements/InputField.vue'
                             <InputField type="time" required />
                         </div>
                         <BaseTextArea placeholder="Special Requests (Optional)"></BaseTextArea>
-                        <BaseButton type="submit" class="bg-primary text-white width-full">Book Now</BaseButton>
+                        <BaseButton type="submit" class="bg-alternative text-white width-full">Book Now</BaseButton>
                     </form>
                 </div>
                 <!-- Right: Image -->
@@ -50,11 +50,14 @@ import InputField from '../Elements/InputField.vue'
 .reservation-section textarea {
     border-color: var(--border-color);
     padding: .9rem 1.5rem;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
+}
+.reservation-section p {
+    margin: .3rem 0 .75rem 0;
 }
 
 .reservation-section .btn {
-    border-radius: 1.5rem;
+    border-radius: 2rem;
     padding: .9rem 1.5rem;
 }
 .reservation-image{
