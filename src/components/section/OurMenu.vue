@@ -5,6 +5,7 @@ import ListItem from '../Elements/ListItem.vue';
 import BaseButton from '../Elements/BaseButton.vue';
 import BaseTitle from '../Elements/BaseTitle.vue';
 
+const categoryList = ref(['Starters', 'Main Course', 'Desserts', 'Drinks'])
 const selectedCategory = ref('Starters')
 
 const ourMenu = ref([
@@ -84,32 +85,32 @@ const ourMenu = ref([
         image: 'https://images.unsplash.com/photo-1598515214213-46e571e29cbe?auto=format&fit=crop&w=500&q=80'
     }
 ])
+
 const currentTab = (category) => {
     selectedCategory.value = category;
 }
+
 const menu = computed(() => {
-    return ourMenu.value.find(data => data.category === selectedCategory.value)
+    return ourMenu.value.filter(data => data.category === selectedCategory.value)
 })
 
 </script>
 
 <template>
-    <section class="our-menu">
+    <section class="our-menu bg-white">
         <div class="container">
-            <BaseTitle>Explore Our Food Category</BaseTitle>
+            <BaseTitle class="text-center">Explore Our Food Category</BaseTitle>
             <div class="tab-panel">
                 <ul>
-                    <ListItem v-for="(tab, i) in ourMenu" :key="i">
-                        <BaseButton :class="{ 'active': selectedCategory === tab.id }"
-                            @click="currentTab(tab.category)">{{
-                                tab.category }}
+                    <ListItem v-for="(tab, i) in categoryList" :key="i">
+                        <BaseButton :class="{ 'active': selectedCategory === tab }" @click="currentTab(tab)">{{ tab }}
                         </BaseButton>
                     </ListItem>
                 </ul>
             </div>
 
-            <div class="medium-2 gap-2 align-center">
-                <MenuCard v-for="item in menu" :key="item.id" :menu="menu" />
+            <div class="medium-2 large-3 gap-2 align-center">
+                <MenuCard v-for="item in menu" :key="item.id" :menu="item" />
             </div>
         </div>
     </section>
@@ -124,6 +125,7 @@ const menu = computed(() => {
     padding: 0;
     list-style: none;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
     margin: 3rem 0;

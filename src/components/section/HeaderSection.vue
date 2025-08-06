@@ -39,10 +39,10 @@ onMounted(() => {
 
       <!-- Logo -->
       <a href="#" class="logo">
-        <!-- <img class="height-full width-full" src="/logo.png" alt="logo" /> -->
+        <img class="height-full" src="/logo.png" alt="logo" />
         <div>
           <BaseTitle>RannaBari</BaseTitle>
-          <BaseParagraph>Feast Like Royalty.</BaseParagraph>
+          <BaseParagraph>Every bite tells a story.</BaseParagraph>
         </div>
       </a>
       <BaseButton class="hamburger" @click="toggleMenu">
@@ -83,15 +83,14 @@ onMounted(() => {
   text-decoration: none;
 }
 
-.logo span {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
 .logo p {
   margin: 0;
   padding: 0;
   font-size: 0.9rem;
+}
+.logo img {
+  height: auto;
+  width: 60px;;
 }
 
 .navbar {

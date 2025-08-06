@@ -19,7 +19,7 @@ defineProps({
         </div>
         <div class="p-1">
             <SubTitle>{{ menu.name }}</SubTitle>
-            <BaseParagraph>{{ menu.description.substring(0, 60) }}...
+            <BaseParagraph>{{ menu.description }}
             </BaseParagraph>
         </div>
     </div>

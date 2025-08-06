@@ -2,6 +2,7 @@
 import ListItem from '../Elements/ListItem.vue';
 import BaseParagraph from '../Elements/BaseParagraph.vue';
 import SubTitle from '../Elements/SubTitle.vue';
+import BaseTitle from '../Elements/BaseTitle.vue';
 
 const currentYear = new Date().getFullYear();
 
@@ -11,13 +12,13 @@ const currentYear = new Date().getFullYear();
     <div class="container medium-2 large-3 gap-2 py-3">
       <div>
         <a href="/" class="logo">
-          <!-- <img class="height-full width-full" src="/logo.png" alt="logo" /> -->
+          <img class="height-full width-full" src="/logo.png" alt="logo" />
           <div>
-            <span>Ranna Bari</span>
-            <p>Feast Like Royalty.</p>
+            <BaseTitle>Ranna Bari</BaseTitle>
+            <BaseParagraph>Every bite tells a story.</BaseParagraph>
           </div>
         </a>
-        <BaseParagraph>Your gateway to exclusive discounts and savings</BaseParagraph>
+        <BaseParagraph>Savor authentic flavors and memorable dining experiences</BaseParagraph>
         <div class="social-links">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
@@ -56,7 +57,7 @@ const currentYear = new Date().getFullYear();
             <i class="fas fa-phone"></i> +1 (555) 123-4567
           </ListItem>
           <ListItem>
-            <i class="fas fa-envelope"></i> reservations@ghorbari.com
+            <i class="fas fa-envelope"></i> reservations@rannabari.com
           </ListItem>
           <ListItem>
             <i class="fas fa-clock"></i> Tue-Sun: 5:30 PM - 11:00 PM
@@ -68,7 +69,7 @@ const currentYear = new Date().getFullYear();
 
     <!-- Copyright & Bottom Bar -->
     <div class="footer-bottom">
-      <p>&copy; {{ new Date().getFullYear() }} Ranna Bari. All rights reserved.</p>
+      <p>&copy; {{ currentYear }} Ranna Bari. All rights reserved.</p>
       <div class="flex align-center justify-center gap-1">
         <a href="#">Privacy Policy</a> <a href="#">Terms of Service</a>
       </div>
@@ -96,20 +97,15 @@ const currentYear = new Date().getFullYear();
   text-decoration: none;
 }
 
-.logo span {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
 .logo p {
   margin-top: -.25rem;
   font-size: 0.9rem;
 }
-
 .logo img {
-  height: 50px;
-  width: 50px;
+  height: auto;
+  width: 60px;;
 }
+
 
 .social-links {
   display: flex;
