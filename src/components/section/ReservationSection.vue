@@ -49,6 +49,7 @@ import InputField from '../Elements/InputField.vue'
 .reservation-section input,
 .reservation-section textarea {
     border-color: var(--border-color);
+    background: var(--white-color);
     padding: .9rem 1.5rem;
     border-radius: 2rem;
 }
@@ -59,6 +60,7 @@ import InputField from '../Elements/InputField.vue'
 .reservation-section .btn {
     border-radius: 2rem;
     padding: .9rem 1.5rem;
+    border-color: var(--alternative-color);
 }
 .reservation-image{
     width: 100%;

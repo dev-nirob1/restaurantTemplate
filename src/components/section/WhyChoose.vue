@@ -57,7 +57,8 @@ import ListItem from '../Elements/ListItem.vue';
   padding: 2rem .5rem;
   /* border: 1px solid var(--border-color); */
   /* box-shadow: var(--box-shadow); */
-  background-color: #fff;
+  background-color: var(--white-color);
+  color: var(--primary-color);
 }
 .statistics ul i {
   height: 80px;

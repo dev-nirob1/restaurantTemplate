@@ -97,7 +97,7 @@ const menu = computed(() => {
 </script>
 
 <template>
-    <section class="our-menu bg-white">
+    <section class="our-menu">
         <div class="container">
             <BaseTitle class="text-center">Explore Our Food Category</BaseTitle>
             <div class="tab-panel">
@@ -135,12 +135,14 @@ const menu = computed(() => {
     padding: .75rem 1rem;
     margin: 0;
     border-radius: 1.9rem;
+    color: var(--primary-color);
+    background-color: var(--white-color);
 }
 
 .tab-panel ul li .btn.active {
-    background-color: var(--primary-color);
+    background-color: var(--alternative-color);
     color: var(--white-color);
-    border-color: var(--primary-color);
+    border-color: var(--alternative-color);
 }
 
 .our-menu .app-image {
@@ -155,7 +157,6 @@ const menu = computed(() => {
 }
 
 @media (min-width: 768px) {
-
     .tab-panel ul li .btn {
         padding: 1rem 1.5rem;
     }

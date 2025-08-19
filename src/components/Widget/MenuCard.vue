@@ -21,6 +21,7 @@ defineProps({
             <SubTitle>{{ menu.name }}</SubTitle>
             <BaseParagraph>{{ menu.description }}
             </BaseParagraph>
+            <BaseButton class="text-white bg-alternative">Order Now</BaseButton>
         </div>
     </div>
 </template>
@@ -41,7 +42,6 @@ defineProps({
     font-weight: 600;
     margin: 0;
     border-top-right-radius: 1rem;
-    color: var(--white-color);
     background-color: var(--alternative-color);
     z-index: 1;
 }
@@ -70,5 +70,10 @@ defineProps({
 
 .menu-card .image:hover img {
     transform: scale(1.1);
+}
+.menu-card .btn {
+    border-radius: 2rem;
+    padding: .75rem 1rem;
+    border-color: var(--alternative-color);
 }
 </style>

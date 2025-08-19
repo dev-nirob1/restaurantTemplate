@@ -8,7 +8,6 @@ import WhyChoose from './components/section/WhyChoose.vue';
 import SpecialOffer from './components/section/SpecialOffer.vue';
 import HeroSection from './components/section/HeroSection.vue';
 import OurMenu from './components/section/OurMenu.vue';
-
 </script>
 
 <template>
