@@ -14,7 +14,7 @@ import InputField from '../Elements/InputField.vue'
                 <div class="reservation-form">
                     <div class="mb-1">
                         <BaseTitle>Reserve a Table</BaseTitle>
-                    <BaseParagraph>Book your table and enjoy a delightful dining experience.</BaseParagraph>
+                        <BaseParagraph>Book your table and enjoy a delightful dining experience.</BaseParagraph>
                     </div>
 
                     <form>
@@ -49,25 +49,34 @@ import InputField from '../Elements/InputField.vue'
 .reservation-section input,
 .reservation-section textarea {
     border-color: var(--border-color);
-    background: var(--white-color);
+    background: var(--light-color);
     padding: .9rem 1.5rem;
     border-radius: 2rem;
 }
+
+.reservation-section input::placeholder {
+    color: var(--white-color);
+}
+
+.reservation-section textarea::-webkit-input-placeholder {
+    color: var(--white-color);
+}
+
+input {
+    color-scheme: dark;
+}
+
 .reservation-section p {
     margin: .3rem 0 .75rem 0;
 }
 
-.reservation-section .btn {
-    border-radius: 2rem;
-    padding: .9rem 1.5rem;
-    border-color: var(--alternative-color);
-}
-.reservation-image{
+.reservation-image {
     width: 100%;
     height: auto;
 }
-.reservation-image img{ 
+
+.reservation-image img {
     width: 100%;
     object-fit: cover;
- }
+}
 </style>

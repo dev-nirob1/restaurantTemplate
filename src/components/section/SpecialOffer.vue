@@ -22,7 +22,7 @@ import BaseTitle from '../Elements/BaseTitle.vue';
                         lemon zest, and seasonal vegetables.
                     </BaseParagraph>
                     <BaseParagraph class="price">$24.99</BaseParagraph>
-                    <BaseButton>Order Now</BaseButton>
+                    <BaseButton class="outline">Order Now</BaseButton>
                     <BaseParagraph class="chef-note">~ Recommended by Chef Antonio</BaseParagraph>
                 </div>
             </div>
@@ -61,11 +61,6 @@ import BaseTitle from '../Elements/BaseTitle.vue';
 
 .special-section .btn {
     width: fit-content;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    padding: .75rem 1rem;
-    border-radius: 2rem;
-    margin: 0;
 }
 
 .special-section .chef-note {
