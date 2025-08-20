@@ -70,9 +70,6 @@ const currentYear = new Date().getFullYear();
     <!-- Copyright & Bottom Bar -->
     <div class="footer-bottom">
       <p>&copy; {{ currentYear }} Ranna Bari. All rights reserved.</p>
-      <div class="flex align-center justify-center gap-1">
-        <a href="#">Privacy Policy</a> <a href="#">Terms of Service</a>
-      </div>
     </div>
   </footer>
 </template>
@@ -170,8 +167,8 @@ const currentYear = new Date().getFullYear();
 
 /* Footer copyright bar*/
 .footer-bottom {
-  padding: 1.5rem;
-  font-size: 14px;
+  padding: .75rem;
+  font-size: .9rem;
   text-align: center;
   background: var(--light-color);
 }
