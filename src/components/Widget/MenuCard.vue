@@ -43,7 +43,7 @@ defineProps({
     font-weight: 600;
     margin: 0;
     border-top-right-radius: 1rem;
-    background-color: var(--alternative-color);
+    background-color: var(--secondary-color);
     z-index: 1;
 }
 

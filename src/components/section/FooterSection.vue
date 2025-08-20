@@ -78,11 +78,6 @@ const currentYear = new Date().getFullYear();
 </template>
 
 <style scoped>
-.footer {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-}
-
 .footer h5 {
   margin-bottom: 1.5rem;
   position: relative;
@@ -178,6 +173,6 @@ const currentYear = new Date().getFullYear();
   padding: 1.5rem;
   font-size: 14px;
   text-align: center;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--light-color);
 }
 </style>

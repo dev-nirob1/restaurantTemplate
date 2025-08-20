@@ -56,7 +56,8 @@ import ListItem from '../Elements/ListItem.vue';
   justify-content: center;
   gap: 1rem;
   padding: 2rem .5rem;
-  background-color: var(--primary-color);
+  background-color: var(--white-color);
+  color: var(--primary-color)
 }
 .statistics ul i {
   height: 80px;

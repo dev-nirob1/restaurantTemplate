@@ -10,10 +10,10 @@ html {
   --montserrat-font: "Montserrat", sans-serif;
   --roboto-font: "Roboto", serif;
 
-  --primary-color: #0c0c0c;
+  --primary-color: #000000 ;
   --alternative-color: #8b0000;
   --secondary-color: #d4af37;
-  --light-color: #111111;
+  --light-color: #0b0b0b96;
   --white-color: #f8f4e9;
   --border-color: #ccc;
   /* ---------------typography------------ */
@@ -102,7 +102,7 @@ a {
 }
 
 .bg-light {
-  background-color: rgb(from var(--primary-color) r g b/ 5%);
+  background-color: var(--light-color);
   /* background-color: #d4ebff; */
 }
 .bg-primary {

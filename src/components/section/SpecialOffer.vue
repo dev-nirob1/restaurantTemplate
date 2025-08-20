@@ -7,7 +7,7 @@ import BaseTitle from '../Elements/BaseTitle.vue';
 </script>
 
 <template>
-    <section class="special-section">
+    <section class="special-section bg-light">
         <div class="container">
             <div class="medium-2 gap-2 align-center">
                 <div class="image-container order-2 medium-order-1">
@@ -32,7 +32,6 @@ import BaseTitle from '../Elements/BaseTitle.vue';
 
 <style scoped>
 .special-section {
-    background-color: var(--light-color);
     padding: 3.75rem 0;
 }
 
@@ -40,6 +39,7 @@ import BaseTitle from '../Elements/BaseTitle.vue';
     width: 100%;
     height: auto;
 }
+
 .special-section .image-container img {
     width: 100%;
     height: 100%;
@@ -73,6 +73,7 @@ import BaseTitle from '../Elements/BaseTitle.vue';
     font-size: 0.9rem;
     margin-top: .75rem;
 }
+
 @media (min-width: 768px) {
     .special-section .btn {
         padding: .8rem 2rem;
