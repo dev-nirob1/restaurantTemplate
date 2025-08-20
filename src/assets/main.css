@@ -130,6 +130,11 @@ a {
 .flex {
   display: flex;
 }
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .flex-wrap {
   flex-wrap: wrap;
@@ -167,6 +172,35 @@ a {
   font-size: 1rem;
   text-align: center;
   transition: all 0.3s ease-in-out;
+}
+
+.btn {
+    color: var(--white-color);
+    border-radius: 2rem;
+    padding: .75rem 1rem;
+}
+
+.btn.outline {
+    border-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.btn.outline:hover {
+    background: rgb(from var(--primary-color) r g b / 30%);
+    transform: translateY(-.25rem);
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.btn.bg-alternative {
+    border-color: var(--alternative-color);
+}
+
+.btn.bg-alternative:hover {
+    transform: translateY(-.25rem);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+    background-color: var(--secondary-color);
 }
 
 :root {
