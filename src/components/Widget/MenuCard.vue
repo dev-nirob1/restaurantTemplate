@@ -34,7 +34,8 @@ defineProps({
     border-radius: 1rem;
     background-color: var(--light-color);
 }
-.menu-card .price{
+
+.menu-card .price {
     position: absolute;
     right: 0;
     top: 0;
@@ -44,6 +45,7 @@ defineProps({
     margin: 0;
     border-top-right-radius: 1rem;
     background-color: var(--secondary-color);
+    color: var(--primary-color);
     z-index: 1;
 }
 
@@ -71,10 +73,5 @@ defineProps({
 
 .menu-card .image:hover img {
     transform: scale(1.1);
-}
-.menu-card .btn {
-    border-radius: 2rem;
-    padding: .75rem 1rem;
-    border-color: var(--alternative-color);
 }
 </style>

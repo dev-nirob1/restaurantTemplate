@@ -17,7 +17,7 @@ import HeroTitle from '../Elements/HeroTitle.vue';
                         We see our customers as invited guests to a party, and we are the hosts. It’s our job every day
                         to make every important aspect of the customer experience a little bit better.
                     </BaseParagraph>
-                    <BaseButton>Learn More</BaseButton>
+                    <BaseButton class="bg-alternative">Learn More</BaseButton>
                 </div>
                 <div class="images">
                     <BaseImage image="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="image" />
@@ -30,16 +30,7 @@ import HeroTitle from '../Elements/HeroTitle.vue';
 <style scoped>
 .about-us {
     padding: 3.75rem 0;
-    color: var(--white-color);
-    background: linear-gradient(to right, rgb(from var(--primary-color)r g b / 60%), rgb(from var(--primary-color) r g b / 60%)), url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center / cover no-repeat;
-}
-
-.about-us .btn {
-    padding: .75rem 1rem;
-    border-radius: 2rem;
-    color: var(--white-color);
-    background-color: var(--alternative-color);
-    border-color: var(--alternative-color);
+    background: linear-gradient(to right, rgb(from var(--primary-color)r g b / 60%), rgb(from var(--primary-color) r g b / 60%)), url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center / cover no-repeat fixed;
 }
 
 .about-us .images {

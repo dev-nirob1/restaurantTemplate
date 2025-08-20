@@ -15,7 +15,7 @@ const ourMenu = ref([
         name: 'Garlic Bread',
         description: 'Toasted bread with garlic, herbs, and olive oil.',
         price: 5.99,
-        image: 'https://images.unsplash.com/photo-1621996346565-08cb32b2d9fa?auto=format&fit=crop&w=500&q=80'
+        image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80'
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ const ourMenu = ref([
         name: 'Caesar Salad',
         description: 'Crisp romaine, creamy dressing, croutons, and parmesan.',
         price: 7.49,
-        image: 'https://images.unsplash.com/photo-1604908177796-050f404dd76b?auto=format&fit=crop&w=500&q=80'
+        image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80'
     },
 
     {
@@ -48,7 +48,7 @@ const ourMenu = ref([
         name: 'Margherita Pizza',
         description: 'Stone-baked pizza with fresh mozzarella, tomato, and basil.',
         price: 15.0,
-        image: 'https://images.unsplash.com/photo-1601924582975-4be52b1eb4e7?auto=format&fit=crop&w=500&q=80'
+        image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80'
     },
 
     {
@@ -57,7 +57,7 @@ const ourMenu = ref([
         name: 'Chocolate Cake',
         description: 'Rich and moist dark chocolate cake with ganache.',
         price: 6.5,
-        image: 'https://images.unsplash.com/photo-1601979031925-082d6919d1fd?auto=format&fit=crop&w=500&q=80'
+        image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80'
     },
     {
         id: 7,
@@ -65,7 +65,7 @@ const ourMenu = ref([
         name: 'Strawberry Cheesecake',
         description: 'Creamy cheesecake with a fresh strawberry topping.',
         price: 7.0,
-        image: 'https://images.unsplash.com/photo-1612197393831-f3ce2c2fdfae?auto=format&fit=crop&w=500&q=80'
+        image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80'
     },
 
     {
@@ -82,7 +82,7 @@ const ourMenu = ref([
         name: 'Iced Coffee',
         description: 'Chilled coffee with cream and ice.',
         price: 4.25,
-        image: 'https://images.unsplash.com/photo-1598515214213-46e571e29cbe?auto=format&fit=crop&w=500&q=80'
+        image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80'
     }
 ])
 
@@ -101,7 +101,7 @@ const menu = computed(() => {
         <div class="container">
             <BaseTitle class="text-center">Explore Our Food Category</BaseTitle>
             <div class="tab-panel">
-                <ul>
+                <ul class="flex-center">
                     <ListItem v-for="(tab, i) in categoryList" :key="i">
                         <BaseButton :class="{ 'active': selectedCategory === tab }" @click="currentTab(tab)">{{ tab }}
                         </BaseButton>
@@ -124,8 +124,6 @@ const menu = computed(() => {
 .tab-panel ul {
     padding: 0;
     list-style: none;
-    display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
     margin: 3rem 0;
@@ -134,7 +132,6 @@ const menu = computed(() => {
 .tab-panel ul li .btn {
     padding: .75rem 1rem;
     margin: 0;
-    border-radius: 1.9rem;
     color: var(--primary-color);
     background-color: var(--white-color);
 }
@@ -145,15 +142,10 @@ const menu = computed(() => {
     border-color: var(--alternative-color);
 }
 
-.our-menu .app-image {
-    height: 100%;
-    width: 100%;
-}
-
-.our-menu .app-image img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.tab-panel ul li .btn:hover {
+    background: var(--alternative-color);
+    color: var(--white-color);
+    border-color: var(--alternative-color)
 }
 
 @media (min-width: 768px) {
