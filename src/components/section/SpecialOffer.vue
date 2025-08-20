@@ -32,8 +32,7 @@ import BaseTitle from '../Elements/BaseTitle.vue';
 
 <style scoped>
 .special-section {
-    background-color: var(--primary-color);
-    color: var(--white-color);
+    background-color: var(--light-color);
     padding: 3.75rem 0;
 }
 

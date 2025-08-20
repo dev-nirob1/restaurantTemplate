@@ -1,5 +1,5 @@
-@import './grid.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "./grid.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -7,13 +7,14 @@ html {
   scroll-behavior: smooth;
 }
 :root {
-  --montserrat-font: 'Montserrat', sans-serif;
-  --roboto-font: 'Roboto', serif;
+  --montserrat-font: "Montserrat", sans-serif;
+  --roboto-font: "Roboto", serif;
 
- --primary-color: #1e1e1e;    
-  --alternative-color: #8B0000;   
-  --secondary-color: #D4AF37; 
-  --white-color: #F8F4E9;
+  --primary-color: #0c0c0c;
+  --alternative-color: #8b0000;
+  --secondary-color: #d4af37;
+  --light-color: #111111;
+  --white-color: #f8f4e9;
   --border-color: #ccc;
   /* ---------------typography------------ */
   /* headings  */
@@ -23,7 +24,6 @@ html {
   --heading-4: 1.125rem;
 
   /* box shadows  */
-  --testimonials-card-shadow: 0 5px 20px 0 rgba(23, 44, 82, 0.293);
   --box-shadow: 0 0 10px rgba(0, 0, 0, 0.109);
 }
 
@@ -169,7 +169,6 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
-
 :root {
   --heading-1: 2rem;
   --heading-2: 1.75rem;
@@ -201,7 +200,6 @@ a {
     --heading-3: 2rem;
     --heading-4: 1.75rem;
   }
-
 }
 
 @media (min-width: 1200px) {

@@ -32,6 +32,7 @@ defineProps({
     cursor: pointer;
     position: relative;
     border-radius: 1rem;
+    background-color: var(--light-color);
 }
 .menu-card .price{
     position: absolute;
