@@ -32,7 +32,7 @@ import InputField from '../Elements/InputField.vue'
                 </div>
                 <!-- Right: Image -->
                 <div class="reservation-image">
-                    <img src="https://cdn.pixabay.com/photo/2021/07/20/06/04/restaurant-6479818_1280.jpg"
+                    <img src="https://images.unsplash.com/photo-1574966739987-65e38db0f7ce?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="Restaurant Table" class="reservation-img" />
                 </div>
             </div>
@@ -52,6 +52,7 @@ import InputField from '../Elements/InputField.vue'
     background: var(--light-color);
     padding: .9rem 1.5rem;
     border-radius: 2rem;
+    color: var(--white-color);
 }
 
 .reservation-section input::placeholder {

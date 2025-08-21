@@ -57,7 +57,7 @@ onMounted(() => {
           <a href="#menu">Menu</a>
         </ListItem>
         <ListItem>
-          <a href="#our-story">Our Story</a>
+          <a href="#featured-menu">Featured Menu</a>
         </ListItem>
         <ListItem>
           <a href="#reservation">Reservation</a>
